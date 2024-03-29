@@ -34,7 +34,7 @@ apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 
 ## 4- react-native-screens yapılandırması
 
-- Daha sonra mevcut projenin `android/app/src/main/java/com/[ProjectName]` dizinindeki import tanımlamalarının en altına aşağıdaki tanımlama eklenmeledir.
+- Daha sonra mevcut projenin `android/app/src/main/java/com/[ProjectName]` dizinindeki `MainActivity.kt` dosyasının import tanımlamalarının en altına aşağıdaki tanımlama eklenmeledir.
 
 ```bash
 import android.os.Bundle;
