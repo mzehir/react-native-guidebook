@@ -174,10 +174,10 @@ class MainActivity : ReactActivity() {
 - Daha sonra aşağıdaki komut mevcut uygulamanın kök dizininde çalıştırılmalıdır.
 
 ```bash
-npx react-native generate-bootsplash src/assets/logo.png \ --background=FAFAFA \ --logo-width=100 \ --assets-output=assets \ --flavor=main
+npx react-native generate-bootsplash src/assets/logo.png \ --background=1B2635 \ --logo-width=100 \ --assets-output=assets \ --flavor=main
 ```
 
-- Son olarak mevcut projenin `src/navigators` dizinindeki `Navigator.jsx` dosyasında yer alan ve yorum satırı olan aşağıdaki kodların yorum satırı silinmelidir.
+- Son olarak mevcut projenin `src/navigators` dizinindeki `Navigator.jsx` dosyasında yer alan ve yorum satırı olan aşağıdaki kodların yorum satırı silinmelidir. Bu kodlar çalışır hale getirilmelidir.
 
 ```bash
 // ...
