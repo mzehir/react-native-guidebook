@@ -69,3 +69,14 @@ AppRegistry.registerComponent(appName, () => App);
 - Daha sonra `src/navigators/Navigator.jsx` dosyasındaki `NavigationContainer` elementine gönderilen `onReady` propu ve `import BootSplash from 'react-native-bootsplash';` tanımlaması yorum satırı yapılmalıdır.
 
 - Daha sonra uygulama herhangi bir local serverde çalışır durumda ise durdurulmalıdır. Ve tekrardan çalışır duruma getirilmelidir. Bu adıma kadar yapılan işlemlerde uygulama kullanılabilir durumda olmalıdır.
+
+## 6- Cihaz için uygulama simgesini ayarlama
+
+- Öncelikle 500 x 500 boyutlarında bir logo tasarlanmalıdır. Bu tasarım için canva kullanılabilir.
+
+- Daha sonra tasarlanan bu logo aşağıdaki websiteye yüklenmeli ve websitenin çıktısı masa üstüne kaydedilmeli.
+`https://icon.kitchen/i/H4sIAAAAAAAAA6tWKkvMKU0tVrKqVkpJLMoOyUjNTVWyKikqTa3VUcrNTynNAUlGKyXmpRTlZ6Yo6Shl5hcDyfLUJKXYWgA19PHYPwAAAA%3D%3D`
+
+- Daha sonra android cihazı logo yapılandırması için `icon.kitchen` websitesinden indirilen `IconKitchen-Output` dosyaları zipten çıkartılır ve `android/res` klasörü içerisindeki mipmap-hdpi, mipmap-mdpi, mipmap-xhdpi, mipmap-xxhdpi, mipmap-xxxhdpi klasörleri sırasıyla açılır ve klasör içerisindeki `ic_launcher` dosyası haricindeki dosyalar silinir ve `ic_launcher` dosyası kopyalanıp aynı klasör konumuna `ic_launcher_round` adıyla tekrar kaydedilir.
+
+- Daha sonra düzenlenen bu beş klasör kopyalanıp mevcut projedeki `android/app/src/main/res` konumuna yapıştırılır. Yani eski klasörler yeni klasörler ile değiştirilir. Yada dosyalarıda değiştirilebilir. Daha sonra değişikliği görebilmek için proje tekrardan derlenir. Ve cihazda yüklediğimiz logo gözlemlenir.
