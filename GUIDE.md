@@ -190,3 +190,19 @@ import BootSplash from 'react-native-bootsplash';
       }}
 // ...
 ```
+
+## 8- Splash Screen ekranı status-bar yapılandırması
+
+- Daha sonra mevcut projenin `android/app/src/main/res/values` dizinindeki `styles.xml` dosyasındaki `<item name="postBootSplashTheme">@style/AppTheme</item>` kod satırının bir alt satırına aşağıdaki kod satırı eklenmelidir.
+
+```bash
+<item name="android:statusBarColor">@color/splash_background_color</item>
+```
+
+- Daha sonra mevcut projenin `android/app/src/main/res/values` dizinindeki `colors.xml` dosyasındaki  `<color name="bootsplash_background">#1B2635</color>` kod satırının bir alt satırına aşağıdaki kod satırı eklenmelidir.
+
+```bash
+<color name="splash_background_color">#1B2635</color>
+```
+
+- Daha sonra proje tekrardan derlenip değişiklik gözlemlenmelidir.
