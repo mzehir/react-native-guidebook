@@ -1,4 +1,4 @@
-# Copy guide for Android / Android için kopyalama kılavuzu
+# Android için kopyalama kılavuzu
 
 ## 1-Yeni bir proje oluşturma
 
@@ -75,7 +75,7 @@ AppRegistry.registerComponent(appName, () => App);
 - Öncelikle 500 x 500 boyutlarında bir logo tasarlanmalıdır. Bu tasarım için canva kullanılabilir.
 
 - Daha sonra tasarlanan bu logo aşağıdaki websiteye yüklenmeli ve websitenin çıktısı masa üstüne kaydedilmeli.
-`https://icon.kitchen/i/H4sIAAAAAAAAA6tWKkvMKU0tVrKqVkpJLMoOyUjNTVWyKikqTa3VUcrNTynNAUlGKyXmpRTlZ6Yo6Shl5hcDyfLUJKXYWgA19PHYPwAAAA%3D%3D`
+  `https://icon.kitchen/i/H4sIAAAAAAAAA6tWKkvMKU0tVrKqVkpJLMoOyUjNTVWyKikqTa3VUcrNTynNAUlGKyXmpRTlZ6Yo6Shl5hcDyfLUJKXYWgA19PHYPwAAAA%3D%3D`
 
 - Daha sonra android cihazı logo yapılandırması için `icon.kitchen` websitesinden indirilen `IconKitchen-Output` dosyaları zipten çıkartılır ve `android/res` klasörü içerisindeki mipmap-hdpi, mipmap-mdpi, mipmap-xhdpi, mipmap-xxhdpi, mipmap-xxxhdpi klasörleri sırasıyla açılır ve klasör içerisindeki `ic_launcher` dosyası haricindeki dosyalar silinir ve `ic_launcher` dosyası kopyalanıp aynı klasör konumuna `ic_launcher_round` adıyla tekrar kaydedilir.
 
@@ -104,6 +104,7 @@ AppRegistry.registerComponent(appName, () => App);
 
 </resources>
 ```
+
 - Daha sonra mevcut projenin `android/app/src/main/` dizinindeki `AndroidManifest.xml` dosyası aşağıdaki gibi güncellenmelidir.
 
 ```bash
@@ -169,7 +170,7 @@ class MainActivity : ReactActivity() {
 }
 ```
 
-- Daha sonra mevcut uygulamanın `src/assets/` dizinine istenilen logo, png formatında yüklenmelidir. Yüklenen dosya `logo.png` adında olmalıdır. 
+- Daha sonra mevcut uygulamanın `src/assets/` dizinine istenilen logo, png formatında yüklenmelidir. Yüklenen dosya `logo.png` adında olmalıdır.
 
 - Daha sonra aşağıdaki komut mevcut uygulamanın kök dizininde çalıştırılmalıdır.
 
@@ -199,7 +200,7 @@ import BootSplash from 'react-native-bootsplash';
 <item name="android:statusBarColor">@color/splash_background_color</item>
 ```
 
-- Daha sonra mevcut projenin `android/app/src/main/res/values` dizinindeki `colors.xml` dosyasındaki  `<color name="bootsplash_background">#1B2635</color>` kod satırının bir alt satırına aşağıdaki kod satırı eklenmelidir.
+- Daha sonra mevcut projenin `android/app/src/main/res/values` dizinindeki `colors.xml` dosyasındaki `<color name="bootsplash_background">#1B2635</color>` kod satırının bir alt satırına aşağıdaki kod satırı eklenmelidir.
 
 ```bash
 <color name="splash_background_color">#1B2635</color>
@@ -213,7 +214,7 @@ import BootSplash from 'react-native-bootsplash';
 
 ```bash
 keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
-# C:\Program Files\Java\jdk-17\bin>keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000 
+# C:\Program Files\Java\jdk-17\bin>keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 ```
 
 - Yukarıdaki kod çalıştırıldıktan sonra aşağıdaki sorular cmd ekranında cevaplandırılmalıdır.
@@ -236,7 +237,7 @@ keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias
 
 - Ve son adımda her şey yolunda ise yes cevabı yazılmalıdır.
 
-- 
+-
 
 - Daha sonra `C:\Program Files\Java\jdk-17\bin` dizinindeki `my-upload-key.keystore` dosyası kopyalanmalıdır yada kesilmelidir ve bu dosya mevcut projenin `android/app` dizinine eklenmelidir.
 
@@ -267,7 +268,7 @@ android {
                 keyPassword MYAPP_UPLOAD_KEY_PASSWORD
             }
         }
-        
+
         debug {
           // ...
         }
@@ -285,4 +286,24 @@ android {
 }
 
 // ...
+```
+
+## 9- APK || AAB oluşturma
+
+- Debug modunda bir APK dosyası oluşturmak için `android` dizininde aşağıdaki komut çalıştırılmalıdır. Ve bu komut çalıştırıldıktan sonra `android/app/build/outputs/apk/debug` dizininde debug modundaki apk dosyası oluşur. Çıktının adı normal şartlarda `app-debug.apk` olmalıdır.
+
+```bash
+./gradlew assembleDebug
+```
+
+- Release modunda bir APK dosyası oluşturmak için `android` dizininde aşağıdaki komut çalıştırılmalıdır. Ve bu komut çalıştırıldıktan sonra `android/app/build/outputs/apk/release` dizininde release modundaki apk dosyası oluşur. Çıktının adı normal şartlarda `app-release.apk` olmalıdır.
+
+```bash
+./gradlew assembleRelease
+```
+
+- Release modunda bir APP Bundle dosyası oluşturmak için `android` dizininde aşağıdaki komut çalıştırılmalıdır. Ve bu komut çalıştırıldıktan sonra `android/app/build/outputs/bundle/release` dizininde release modundaki APP Bundle dosyası oluşur. Çıktının adı normal şartlarda `app-release.aab` olmalıdır.
+
+```bash
+./gradlew bundleRelease
 ```
