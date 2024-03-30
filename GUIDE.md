@@ -205,4 +205,84 @@ import BootSplash from 'react-native-bootsplash';
 <color name="splash_background_color">#1B2635</color>
 ```
 
-- Daha sonra proje tekrardan derlenip değişiklik gözlemlenmelidir.
+- Daha sonra mevcut proje tekrardan derlenip değişiklik gözlemlenmelidir.
+
+## 9- Mağaza için yükleme anahtarı oluşturma
+
+- Öncelikle bilgisayardan yönetici olarak cmd çalıştırılır ve daha sonra cmd ile `C:\Program Files\Java\jdk-17\bin` dizinine gidilir. Bu dizindeyken aşağıdaki komut çalıştırılır.
+
+```bash
+keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+# C:\Program Files\Java\jdk-17\bin>keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000 
+```
+
+- Yukarıdaki kod çalıştırıldıktan sonra aşağıdaki sorular cmd ekranında cevaplandırılmalıdır.
+
+- Enter keystore password: => Kişisel bir parola yazılmalıdır ve parola unutulmamalıdır.
+
+- Re-enter new password: => Bir önceki adımdaki parola yazılmalıdır.
+
+- What is your first and last name? => Ad ve Soyad yazılır.
+
+- What is the name of your organizational unit? => Herhangi birşey yazılmayacaksa boş bırakılabilir yada BT yazılabilir.
+
+- What is the name of your organization? => Herhangi birşey yazılmayacaksa boş bırakılabilir yada Freelancer yazılabilir.
+
+- What is the name of your City or Locality? => Örneğin Ankara
+
+- What is the name of your State or Province? => Örneğin Sincan
+
+- What is the two-letter country code for this unit? => Ülke kodu yazılmalıdır. Türkiye için TR yazılabilir.
+
+- Ve son adımda her şey yolunda ise yes cevabı yazılmalıdır.
+
+- 
+
+- Daha sonra `C:\Program Files\Java\jdk-17\bin` dizinindeki `my-upload-key.keystore` dosyası kopyalanmalıdır yada kesilmelidir ve bu dosya mevcut projenin `android/app` dizinine eklenmelidir.
+
+- Daha sonra ise mevcut projede `android/gradle.properties` dosyasının en altına aşağıdaki satırlar eklenmeledir.
+
+```bash
+MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
+MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
+MYAPP_UPLOAD_STORE_PASSWORD=[keystore için yazdığımız password]
+MYAPP_UPLOAD_KEY_PASSWORD=[keystore için yazdığımız password]
+```
+
+- Daha sonra ise mevcut projede `android/app/build.grandle` dosyasında aşağıdaki gibi güncellenmelidir.
+
+```bash
+// ...
+
+android {
+    // ...
+
+    signingConfigs {
+        # release objesi eklenmeli
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
+        
+        debug {
+          // ...
+        }
+    }
+    buildTypes {
+        debug {
+            // ...
+        }
+        release {
+            // ...
+            signingConfig signingConfigs.release # Burası eklenmeli(release)
+            //...
+        }
+    }
+}
+
+// ...
+```
