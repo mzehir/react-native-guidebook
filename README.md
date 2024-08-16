@@ -1,12 +1,22 @@
 # react-native-guidebook
 React Native Guidebook
-![Telefon ekran görüntüleri typography](https://github.com/user-attachments/assets/38f499fb-decc-40f2-ad9f-f232e86f2a85)
-![Telefon ekran görüntüleri theme selector](https://github.com/user-attachments/assets/79286d98-44d4-45dc-9f4a-6f99e48f99b3)
-![Telefon ekran görüntüleri textInput](https://github.com/user-attachments/assets/45f28dea-9a9c-4c50-94e1-2ac9d43b4e44)
-![Telefon ekran görüntüleri settings modal](https://github.com/user-attachments/assets/313c6716-730f-49b1-8f7a-5c85e5258a25)
-![Telefon ekran görüntüleri language selector](https://github.com/user-attachments/assets/f08bbfce-4f91-4893-8695-13894f106cde)
-![Telefon ekran görüntüleri components](https://github.com/user-attachments/assets/2b222c83-e02a-4dc4-9efa-7489281e0f27)
-![Telefon ekran görüntüleri buttons](https://github.com/user-attachments/assets/d6eb8220-c9da-41cf-adb0-82e6907ada98)
-![Telefon ekran görüntüleri button](https://github.com/user-attachments/assets/8fe43207-7f7d-478d-aa29-297f15191790)
-![Özellik grafiği](https://github.com/user-attachments/assets/60e76c5d-1a6f-4159-a345-611926ab0fb6)
-![AppLogo](https://github.com/user-attachments/assets/42015aef-6262-458d-b4b1-f0a5e183f01d)
+
+![AppLogo](https://github.com/user-attachments/assets/a8d5a450-ac3e-45d1-82f2-1b22b8172aa7)
+
+![Guide](https://github.com/user-attachments/assets/f80d1693-183d-4e07-ba96-66ffa2892a68)
+
+![components](https://github.com/user-attachments/assets/43af3382-6909-4251-b1ac-fc2b54aecd83)
+
+![settings modal](https://github.com/user-attachments/assets/8aa43c54-0005-46bb-9746-803896b8bbb2)
+
+![language selector](https://github.com/user-attachments/assets/3811620a-bf32-42d4-b690-c10dde796cff)
+
+![theme selector](https://github.com/user-attachments/assets/db533532-8ea3-48f2-b89a-1c24caaa2676)
+
+![button](https://github.com/user-attachments/assets/e71e8a6a-5f1d-4711-a9f6-9847a9cd4475)
+
+![buttons](https://github.com/user-attachments/assets/5aac9d4c-0956-475c-adef-7f9c2604540a)
+
+![textInput](https://github.com/user-attachments/assets/4271b9d7-25ba-421c-89a9-edb4b955b1f2)
+
+![typography](https://github.com/user-attachments/assets/e737f158-26a9-4b14-b9f8-f3387a82771d)
